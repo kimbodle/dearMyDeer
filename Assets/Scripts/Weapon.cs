@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] Camera FPCamera; //카메라 포인트(1인칭 카메라)
     [SerializeField] float range = 100f; //레이캐스팅이 얼마나 멀리까지 갈 수 잇는지
     [SerializeField] float damage = 30f;
+    [SerializeField] ParticleSystem muzzleFlash;
+    //특정 생명체를 가졌다가 죽일 수 있음
+    [SerializeField] GameObject hitEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +29,24 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
+        PlayMuzzleFlash();
+        ProcessRaycast();
+    }
+
+    private void PlayMuzzleFlash()
+    {
+        muzzleFlash.Play();
+    }
+
+    private void ProcessRaycast()
+    {
         RaycastHit hit;
         //뭔가를 쐈냐? -> 예 / 아니요 bool
         //방향, 레이캐스트 히트 정보 저장 변수 범위
-        if(Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
+        if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
         {
-            Debug.Log("I hit this thing: " + hit.transform.name);
+            CreateHitImpact(hit);
+            //Debug.Log("I hit this thing: " + hit.transform.name);
             EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
             { if (target == null) return; } //널 방지
             target.TakeDamage(damage);
@@ -41,5 +56,12 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
+    }
+
+    private void CreateHitImpact(RaycastHit hit)
+    {
+        //명중 효과가 특정 방향에서 보이길 원함 -> hit.normal
+        GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact, 1);
     }
 }
