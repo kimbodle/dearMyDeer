@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform target;
     //적이 유니티 유닛에서 쫓아오기 까지 남은 적과의 거리
     [SerializeField] float chaseRange = 5f;
+    [SerializeField] float turnSpeed = 5f;
 
     //내비메시 에이전트
     NavMeshAgent navMeshAgent;
@@ -40,8 +41,16 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void OnDamageTaken()
+    {
+        //피해를 입었는지 안입었는지
+        //적의 체력이 감소하거나 그 어떤 변화라도 일어나면, 곧바로 피해량 인식
+        isProvoked = true;
+    }
+
     private void EngageTarget()
     {
+        FaceTarget();
         //navmeshagent모듈의 값
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
@@ -67,7 +76,19 @@ public class EnemyAI : MonoBehaviour
         //Debug.Log(name + "은 발견했고 파괴하는중이다" + target.name);
     }
 
-   
+    void FaceTarget()
+    {
+        //뺄셈으로 위치를 알아낸뒤에 표준화로 방향 알아내기
+        Vector3 direction = (target.position - transform.position).normalized;
+
+        //Quaternion 회전 방향 결정, LookRotation은 Vector3 변수값 사용. 어느방향을 봐야하는지 알려주는 코드
+        //Y에 0을 넣는 이유는 적이 타켓을 찾을때 위 아래로 회전 x 기 위해
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        //Slerp(구체보간법). 둡벡터값을 기반으로 자연스럽게 회전
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
+        //Our rotation_적의 위치(현재 위치), Target rotation_타겟 위치, Speed_속력(포착 시간)
+    }
+
 
     private void OnDrawGizmosSelected()
     {
