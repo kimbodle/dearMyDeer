@@ -12,7 +12,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     //특정 생명체를 가졌다가 죽일 수 있음
     [SerializeField] GameObject hitEffect;
-    // Start is called before the first frame update
+
+    [SerializeField] Ammo ammoSlot;
+
     void Start()
     {
         
@@ -29,8 +31,13 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
-        PlayMuzzleFlash();
-        ProcessRaycast();
+        if(ammoSlot.GetCurrentAmmo() > 0)
+        {
+            PlayMuzzleFlash();
+            ProcessRaycast();
+            ammoSlot.ReduceCurrentAmmo();
+        }
+       
     }
 
     private void PlayMuzzleFlash()
