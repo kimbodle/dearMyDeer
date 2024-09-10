@@ -17,6 +17,7 @@ public class DeathHandler : MonoBehaviour
         gameOverCanvas.enabled = true;
         //게임과 마우스 커서 충돌 방지
         Time.timeScale = 0;
+        FindObjectOfType<WeaponSwitcher>().enabled = false;
         //lockState의 CursorLockMode값 비활성화
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
