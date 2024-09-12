@@ -32,7 +32,7 @@ public class WeaponSwitcher : MonoBehaviour
     {
         //음수에서 양수로 이동
         //마우스 휠 위 방향
-        if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        if(Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             //무기들의 인덱스 번호와 맞추기 위해 - 1
             if(currentWeapon >= transform.childCount - 1)
@@ -46,7 +46,7 @@ public class WeaponSwitcher : MonoBehaviour
         }
 
         //마우스 휠 아래 방향. 휠값이 0보다 작음
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             //0또는 0보다 작은 수가 되었을때 더이상 값이 내려가지 않음.
             if (currentWeapon <= 0)

@@ -11,21 +11,35 @@ public class WeaponZoom : MonoBehaviour
     // Start is called before the first frame update
 
     bool zoomedInToggle = false;
-    // Update is called once per frame
+
+    private void OnDisable()
+    {
+        ZoomOut();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
             if (zoomedInToggle == false)
             {
-                zoomedInToggle = true;
-                fpsCamera.m_Lens.FieldOfView = zoomedInFOV;
+                ZoomIn();
             }
             else
             {
-                zoomedInToggle = false;
-                fpsCamera.m_Lens.FieldOfView = zoomedOutFOV;
+                ZoomOut();
             }
         }
+    }
+
+    private void ZoomOut()
+    {
+        zoomedInToggle = false;
+        fpsCamera.m_Lens.FieldOfView = zoomedOutFOV;
+    }
+
+    private void ZoomIn()
+    {
+        zoomedInToggle = true;
+        fpsCamera.m_Lens.FieldOfView = zoomedInFOV;
     }
 }

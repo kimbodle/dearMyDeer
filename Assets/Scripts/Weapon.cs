@@ -16,8 +16,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] Ammo ammoSlot;
     [SerializeField] float timeBetweenShots = 0.5f;
 
+    //사용하는 무기의 탄약 종류
+    [SerializeField] AmmoType ammoType;
+
     bool canShoot = true;
 
+    private void OnEnable()
+    {
+        canShoot = true;
+    }
     void Start()
     {
         
@@ -36,11 +43,12 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        if(ammoSlot.GetCurrentAmmo() > 0)
+        //~Ammo(각 총에 맞는 탄약)
+        if(ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
             ProcessRaycast();
-            ammoSlot.ReduceCurrentAmmo();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
         }
 
         yield return new WaitForSeconds(timeBetweenShots);
