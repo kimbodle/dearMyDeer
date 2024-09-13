@@ -18,13 +18,24 @@ public class EnemyAI : MonoBehaviour
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
 
+    EnemyHealth health;
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        health = GetComponent<EnemyHealth>();
     }
 
     void Update()
     {
+        if (health.IsDead())
+        {
+            //죽은 상태면 EnemyAI를 비활성화
+            enabled = false;
+            navMeshAgent.enabled = false;
+            return;
+        }
+
         //타겟의 위치와 본인의 위치를 계산
         distanceToTarget= Vector3.Distance(target.position, transform.position);
         
