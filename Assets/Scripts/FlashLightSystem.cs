@@ -8,7 +8,7 @@ public class FlashLightSystem : MonoBehaviour
 {
     [SerializeField] float lightDecay = 0.1f;
     [SerializeField] float angleDecay = 1f;
-    [SerializeField] float minimunAngle = 40f;
+    [SerializeField] float minimunAngle = 30f;
 
     Light myLight;
 
@@ -22,7 +22,10 @@ public class FlashLightSystem : MonoBehaviour
         DecreaseLightIntensity();
     }
     //πË≈Õ∏ÆΩ¿µÊ
-    public void RestoreLightAngle(float intensityAmount)
+    public void RestoreLightAngle(float restoreAngle)
+    {
+        myLight.spotAngle = restoreAngle;
+    }public void AddLightIntensity(float intensityAmount)
     {
         myLight.intensity += intensityAmount;
     }
