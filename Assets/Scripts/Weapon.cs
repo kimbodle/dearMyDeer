@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class Weapon : MonoBehaviour
     //사용하는 무기의 탄약 종류
     [SerializeField] AmmoType ammoType;
 
+    [SerializeField] TextMeshProUGUI ammoText;
     bool canShoot = true;
 
     private void OnEnable()
@@ -33,11 +35,18 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DisplayAmmo();
         //GetButtonDown("Fire1")
         if (Input.GetMouseButtonDown(0)&& canShoot ==true)
         {
            StartCoroutine(Shoot());
         }
+    }
+
+    private void DisplayAmmo()
+    {
+        int currentAmmo = ammoSlot.GetCurrentAmmo(ammoType);
+        ammoText.text = currentAmmo.ToString();
     }
 
     IEnumerator Shoot()
