@@ -21,11 +21,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] AmmoType ammoType;
 
     [SerializeField] TextMeshProUGUI ammoText;
+    [SerializeField] TextMeshProUGUI gunText;
     bool canShoot = true;
 
     private void OnEnable()
     {
         canShoot = true;
+        gunText.text = gameObject.name; 
     }
     void Start()
     {
@@ -95,5 +97,19 @@ public class Weapon : MonoBehaviour
         //명중 효과가 특정 방향에서 보이길 원함 -> hit.normal
         GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impact, 1);
+    }
+    public float GetRange()
+    {
+        return range;
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public float GetTimeBetweenShots()
+    {
+        return timeBetweenShots;
     }
 }

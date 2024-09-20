@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashLightSystem : MonoBehaviour
 {
@@ -11,15 +12,19 @@ public class FlashLightSystem : MonoBehaviour
     [SerializeField] float minimunAngle = 30f;
 
     Light myLight;
+    [SerializeField] Slider batterySlider;
 
     private void Start()
     {
         myLight = GetComponent<Light>();
+        UpdateBatteryUI();
     }
+
     private void Update()
     {
         DecreaseLightAngle();
         DecreaseLightIntensity();
+        UpdateBatteryUI();
     }
     //¹èÅÍ¸®½Àµæ
     public void RestoreLightAngle(float restoreAngle)
@@ -27,7 +32,15 @@ public class FlashLightSystem : MonoBehaviour
         myLight.spotAngle = restoreAngle;
     }public void AddLightIntensity(float intensityAmount)
     {
-        myLight.intensity += intensityAmount;
+        float currentintensity = myLight.intensity + intensityAmount;
+        if (currentintensity > 3)
+        {
+            myLight.intensity = 3f;
+        }
+        else
+        {
+            myLight.intensity += intensityAmount;
+        }
     }
     private void DecreaseLightIntensity()
     {
@@ -44,5 +57,10 @@ public class FlashLightSystem : MonoBehaviour
         {
             myLight.spotAngle -= angleDecay * Time.deltaTime;
         }
+    }
+
+    private void UpdateBatteryUI()
+    {
+        batterySlider.value = Mathf.Clamp(myLight.intensity / 3f, 0, 1);
     }
 }
