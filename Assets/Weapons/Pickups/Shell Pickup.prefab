@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1060622671529273982}
   - component: {fileID: 3204761387070799511}
   - component: {fileID: 5547781553000437654}
+  - component: {fileID: 1576021710241154871}
   m_Layer: 0
   m_Name: Shell Pickup
   m_TagString: Untagged
@@ -71,6 +72,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoAmount: 5
   ammotype: 1
+--- !u!114 &1576021710241154871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946708660577620947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190208a88fe261b48a3afaeb4c8f3c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signText: 5 shells for shotgun.
 --- !u!1001 &2401196179277231562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,23 +95,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1782692938490276298, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_VersionIndex
-      value: 1806
+      value: 1929
       objectReference: {fileID: 0}
     - target: {fileID: 3791049259600399150, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_Name
       value: Shotgun Shell (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,23 +161,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1782692938490276298, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_VersionIndex
-      value: 1794
+      value: 1917
       objectReference: {fileID: 0}
     - target: {fileID: 3791049259600399150, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_Name
       value: Shotgun Shell (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_LocalPosition.x
@@ -237,23 +227,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1782692938490276298, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_VersionIndex
-      value: 1821
+      value: 1944
       objectReference: {fileID: 0}
     - target: {fileID: 3791049259600399150, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_Name
       value: Shotgun Shell
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6963956250944525017, guid: 6c135da31712a2a4ead769e4a1655c75, type: 3}
       propertyPath: m_LocalPosition.x
