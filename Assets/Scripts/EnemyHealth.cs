@@ -5,10 +5,15 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
+    AudioSource deadSound;
 
     bool isDead = false;
 
 
+    private void Start()
+    {
+        deadSound = GetComponent<AudioSource>();
+    }
     public bool IsDead()
     {
         return isDead;
@@ -29,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(isDead) { return; }
         isDead = true;
+        deadSound.Play();
         GetComponent<Animator>().SetTrigger("die");
         
     }

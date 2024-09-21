@@ -47,10 +47,11 @@ public class DisplayInfo : MonoBehaviour
 
     private void UpdateGunInfo()
     {
+        string theGunName = gameObject.name;
         range = weapon.GetRange().ToString();
         damage = weapon.GetDamage().ToString();
         delay = weapon.GetTimeBetweenShots().ToString();
-        infoText.text = $"This Gun's Range: {range} Damage: {damage} Delay: {delay}";
+        infoText.text = $" {theGunName}\n Range: {range}\n Damage: {damage}\n Delay: {delay}";
 
     }
 

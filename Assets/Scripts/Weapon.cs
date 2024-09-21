@@ -22,6 +22,9 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI ammoText;
     [SerializeField] TextMeshProUGUI gunText;
+
+    AudioSource shootSound;
+
     bool canShoot = true;
 
     private void OnEnable()
@@ -31,7 +34,7 @@ public class Weapon : MonoBehaviour
     }
     void Start()
     {
-        
+        shootSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,8 +57,9 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
+        shootSound.Play();
         //~Ammo(°¢ ÃÑ¿¡ ¸Â´Â Åº¾à)
-        if(ammoSlot.GetCurrentAmmo(ammoType) > 0)
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
             ProcessRaycast();
