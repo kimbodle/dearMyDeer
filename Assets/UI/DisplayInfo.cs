@@ -22,7 +22,7 @@ public class DisplayInfo : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             Time.timeScale = 0;
             InputControl(false);
@@ -30,7 +30,7 @@ public class DisplayInfo : MonoBehaviour
             DisplayGunINfo();
         }
 
-        else if (Input.GetKeyUp(KeyCode.F2))
+        else if (Input.GetKeyUp(KeyCode.F1))
         {
             gunInfoCanvas.enabled = false;
             InputControl(true);

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1425138212420548664}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.21, z: 0.013}
+  m_LocalPosition: {x: 0, y: 2.53, z: 0.013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28227febed1c5af44b933fb28728eb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signText: Recharge the flashlight's batteries.
+  signText: "\uC190\uC804\uB4F1\uC758 \uBC30\uD130\uB9AC\uB97C \uCDA9\uC804\uD574\uC900\uB2E4."
 --- !u!1001 &4336909674701407432
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190208a88fe261b48a3afaeb4c8f3c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signText: 5 shells for shotgun.
+  signText: "Shotgun\uC758 \uD0C4\uC57D +5"
 --- !u!1001 &2401196179277231562
 PrefabInstance:
   m_ObjectHideFlags: 0

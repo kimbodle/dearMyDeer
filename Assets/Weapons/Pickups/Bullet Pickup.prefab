@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0fb168ecf901a49bf56690074e435d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signText: 5 bullets for pistol.
+  signText: "Pistol\uC758 \uD0C4\uC57D+ 3"
 --- !u!1 &6807389418105056133
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,12 +11,14 @@ public class EnemyAI : MonoBehaviour
     //적이 유니티 유닛에서 쫓아오기 까지 남은 적과의 거리
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float turnSpeed = 5f;
+    public AudioSource surpriseSound;
 
     //내비메시 에이전트
     NavMeshAgent navMeshAgent;
     //인식한 타겟과 적이 얼마나 떨어져 있는지
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
+    bool hasPlayedSurpriseSound = false; // 사운드 재생 여부를 확인
 
     EnemyHealth health;
 
@@ -50,6 +52,13 @@ public class EnemyAI : MonoBehaviour
         {
             isProvoked = true;
             //에이전트의 목적지가 플레이어의 현위치가 되어야함
+
+            // 사운드가 한 번도 재생되지 않았으면 재생
+            if (!hasPlayedSurpriseSound)
+            {
+                surpriseSound.Play();
+                hasPlayedSurpriseSound = true; // 사운드가 재생되었음을 기록
+            }
         }
     }
 
@@ -58,6 +67,13 @@ public class EnemyAI : MonoBehaviour
         //피해를 입었는지 안입었는지
         //적의 체력이 감소하거나 그 어떤 변화라도 일어나면, 곧바로 피해량 인식
         isProvoked = true;
+
+        // 사운드가 한 번도 재생되지 않았으면 재생 (피해를 입었을 때도 가능)
+        if (!hasPlayedSurpriseSound)
+        {
+            surpriseSound.Play();
+            hasPlayedSurpriseSound = true;
+        }
     }
 
     private void EngageTarget()

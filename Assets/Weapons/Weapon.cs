@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI ammoText;
     [SerializeField] TextMeshProUGUI gunText;
+    [SerializeField] TextMeshProUGUI delayText;
 
     AudioSource shootSound;
 
@@ -30,11 +31,13 @@ public class Weapon : MonoBehaviour
     private void OnEnable()
     {
         canShoot = true;
-        gunText.text = gameObject.name; 
+        gunText.text = gameObject.name;
+        delayText.gameObject.SetActive(false);
     }
     void Start()
     {
         shootSound = GetComponent<AudioSource>();
+        delayText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -57,10 +60,11 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        shootSound.Play();
+        delayText.gameObject.SetActive(true);
         //~Ammo(각 총에 맞는 탄약)
         if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
+            shootSound.Play();
             PlayMuzzleFlash();
             ProcessRaycast();
             ammoSlot.ReduceCurrentAmmo(ammoType);
@@ -69,6 +73,7 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenShots);
 
         canShoot = true;
+        delayText.gameObject.SetActive(false); // 쏠 수 있는 상태가 되면 delayText 비활성화
     }
 
     private void PlayMuzzleFlash()

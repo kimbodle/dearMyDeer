@@ -28,7 +28,7 @@ public class DisplayInteractiveInfo : MonoBehaviour
                 // F 키를 누르면 상호작용
                 if (interactable.RequiresInteraction())
                 {
-                    InteractiveInfoText.text = $"{hit.collider.name}\nPress F to interact.";
+                    InteractiveInfoText.text = $"{hit.collider.name}\nF 키를 눌러 상호작용";
                     DIsplaySignText(interactable);
                 }
                 else
@@ -66,10 +66,11 @@ public class DisplayInteractiveInfo : MonoBehaviour
                 signInfoText.text = interactable.GetInteractText();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             GetComponent<StarterAssets.FirstPersonController>().enabled = true;
             FindObjectOfType<WeaponSwitcher>().enabled = true;
+            Cursor.visible = false;
             Time.timeScale = 1f;
             HideSignInfo();
         }

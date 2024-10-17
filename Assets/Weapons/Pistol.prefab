@@ -359,6 +359,9 @@ MonoBehaviour:
   hitEffect: {fileID: 6513394556704062529, guid: f3f095faaf5667f4d9879d24ebe77398, type: 3}
   ammoSlot: {fileID: 0}
   timeBetweenShots: 0.2
+  ammoType: 0
+  ammoText: {fileID: 0}
+  gunText: {fileID: 0}
 --- !u!1 &2337074158997199752
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,10 +655,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 113037269559750531, guid: 4a60d8477aafac045a1f56d3a60c7813, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bc06402465d98bd4b96c9889560a9223, type: 2}
     - target: {fileID: 3350055855090824723, guid: 4a60d8477aafac045a1f56d3a60c7813, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.23139995

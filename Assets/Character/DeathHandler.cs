@@ -9,6 +9,7 @@ public class DeathHandler : MonoBehaviour
     private void Start()
     {
         gameOverCanvas.enabled = false;
+        Cursor.visible = false;
     }
 
     public void handleDeath()

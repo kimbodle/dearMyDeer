@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74277c59f3473604cb6d7e46474274a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 5
+  ammoAmount: 6
   ammotype: 2
 --- !u!114 &4734663032931720388
 MonoBehaviour:
@@ -932,4 +932,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0fb168ecf901a49bf56690074e435d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signText: 5 Rocket for carbine.
+  signText: "Carbine\uC758 \uD0C4\uC57D + 6"
