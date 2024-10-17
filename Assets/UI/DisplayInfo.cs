@@ -51,7 +51,7 @@ public class DisplayInfo : MonoBehaviour
         range = weapon.GetRange().ToString();
         damage = weapon.GetDamage().ToString();
         delay = weapon.GetTimeBetweenShots().ToString();
-        infoText.text = $" {theGunName}\n Range: {range}\n Damage: {damage}\n Delay: {delay}";
+        infoText.text = $" {theGunName}\n 범위: {range}\n 데미지: {damage}\n 딜레이: {delay}";
 
     }
 
